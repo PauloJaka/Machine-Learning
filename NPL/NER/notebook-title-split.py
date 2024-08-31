@@ -73,7 +73,7 @@ def save_model(nlp, output_dir):
     nlp.to_disk(output_dir)
 
 def main():
-    csv_file = "/home/paulo-jaka/Downloads/notebooks_com_modelo_e_gamer.csv"
+    csv_file = "/media/paulo-jaka/Extras/Machine-learning/base-de-dados/notebooks_com_modelo_e_gamer.csv"
     output_dir = "modelo_ner_notebooks"
     
     df = load_data(csv_file)
