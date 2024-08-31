@@ -111,7 +111,7 @@ def save_model(nlp, output_dir):
 
 def main():
     csv_file = "/media/paulo-jaka/Extras/Machine-learning/base-de-dados/smartphone-dados-treino - smartphone-specs1.csv"
-    output_dir = "modelo_ner_celulares5"
+    output_dir = "modelo_ner_celulares"
     
     df = load_data(csv_file)
     training_data = prepare_training_data(df)
@@ -121,3 +121,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
