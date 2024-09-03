@@ -97,7 +97,7 @@ def save_model(nlp, output_dir):
 
 def main():
     csv_file = "/media/paulo-jaka/Extras/Machine-learning/base-de-dados/smarthwatchs_dados_treino2.csv"
-    output_dir = "modelo_ner_smartwatches2"
+    output_dir = "modelo_ner_smartwatches"
     
     df = load_data(csv_file)
     training_data = prepare_training_data(df)
