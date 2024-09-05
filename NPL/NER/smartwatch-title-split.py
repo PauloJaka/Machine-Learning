@@ -24,7 +24,8 @@ KNOWN_BRANDS = [
     "Fossil", "Withings", "Suunto", "Mobvoi", "Amazfit", "Garmin", "Fitbit",
     "Huawei", "Apple", "Samsung", "TicWatch", "Polar", "Tag Heuer", "Casio",
     "Amazfit", "Garmin", "Suunto", "Huawei", "Fitbit", "Amazfit", "Withings",
-    "Fossil", "Huawei", "Michael Kors", "Misfit", "TomTom", "Jawbone", "Zepp"
+    "Fossil", "Huawei", "Michael Kors", "Misfit", "TomTom", "Jawbone", "Zepp","Philco",
+    "Britânia", "Roku", "Dolby", "Philips", "Semp"
 ]
 
 
