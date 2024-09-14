@@ -61,13 +61,6 @@ def extract_entities(text, row):
                 if ram_entity:
                     entities.append(ram_entity)
     
-    camera_entity = find_entity('CAMERA', entity_patterns['CAMERA'], text, entities)
-    if camera_entity:
-        entities.append(camera_entity)
-    
-    dual_chip_entity = find_entity('DUAL_CHIP', entity_patterns['DUAL_CHIP'], text, entities)
-    if dual_chip_entity:
-        entities.append(dual_chip_entity)
     
     return entities
 
@@ -82,7 +75,7 @@ def prepare_training_data(df):
     
     return training_data
 
-def train_model(training_data, iterations=100):
+def train_model(training_data, iterations=200):
     nlp = spacy.blank("pt")
     ner = nlp.add_pipe("ner", last=True)
     
@@ -110,8 +103,8 @@ def save_model(nlp, output_dir):
     nlp.to_disk(output_dir)
 
 def main():
-    csv_file = "/media/paulo-jaka/Extras/Machine-learning/base-de-dados/smartphone-dados-treino - smartphone-specs1.csv"
-    output_dir = "modelo_ner_celulares"
+    csv_file = "/media/paulo-jaka/Extras/Machine-learning/base-de-dados/uai2.csv"
+    output_dir = "modelo_ner_celulares2"
     
     df = load_data(csv_file)
     training_data = prepare_training_data(df)
