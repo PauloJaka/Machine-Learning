@@ -24,8 +24,6 @@ def extract_entities(text, row):
         'MODEL': re.escape(row['modelo']),
         'RAM': r'\b(\d+\s*GB RAM|\d+\s*G RAM|\d+\s*GB|\d+\s*RAM)\b',
         'STORAGE': r'\b(\d+\s*GB|\d+\s*TB)\b',
-        'CAMERA': r'\b(\d+\s*Mpx)\b',
-        'DUAL_CHIP': r'\bDUAL\s*(CHIP|SIM)\b'
     }
 
     model_entity = find_entity('MODEL', entity_patterns['MODEL'], text, entities)

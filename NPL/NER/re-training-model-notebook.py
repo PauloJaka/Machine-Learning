@@ -42,7 +42,7 @@ def prepare_training_data(df):
 
     return training_data
 
-def train_model(training_data, model_path, iterations=350):
+def train_model(training_data, model_path, iterations=150):
     nlp = spacy.load(model_path)  # Carrega o modelo pré-treinado
     ner = nlp.get_pipe("ner")
 
@@ -56,13 +56,13 @@ def train_model(training_data, model_path, iterations=350):
         for itn in range(iterations):
             random.shuffle(training_data)
             losses = {}
-            batches = minibatch(training_data, size=compounding(8.0, 64.0, 1.01))
+            batches = minibatch(training_data, size=compounding(4.0, 32.0, 1.001))
 
             for batch in batches:
                 for text, annotations in batch:
                     doc = nlp.make_doc(text)
                     example = Example.from_dict(doc, annotations)
-                    nlp.update([example], drop=0.3, sgd=optimizer, losses=losses)
+                    nlp.update([example], drop=0.5, sgd=optimizer, losses=losses)
             print(f"Iteration {itn + 1}, Losses: {losses}")
 
     return nlp
@@ -71,9 +71,9 @@ def save_model(nlp, output_dir):
     nlp.to_disk(output_dir)
 
 def main():
-    csv_file = "/media/paulo-jaka/Extras/Machine-learning/base-de-dados/notebook_new_samples_att.csv"
-    output_dir = "modelo_ner_notebooks4_last"
-    model_path = "/media/paulo-jaka/Extras/Machine-learning/NPL/NER/trained_models/modelo_ner_notebooks"  # Caminho para o modelo pré-treinado
+    csv_file = "/home/paulo-jaka/Downloads/datasets_trabalho/notebook_new_samples_att.csv"
+    output_dir = "modelo_ner_notebooks6_last"
+    model_path = "/media/paulo-jaka/Extras/Machine-learning/modelo_ner_notebooks5_last"  
 
     df = load_data(csv_file)
     training_data = prepare_training_data(df)
